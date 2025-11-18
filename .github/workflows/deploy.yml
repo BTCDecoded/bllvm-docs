@@ -39,13 +39,27 @@ jobs:
       - name: Add .nojekyll to deployment root
         run: touch book/.nojekyll
         
-      - name: Copy custom.css to output directory
+      - name: Verify and copy custom.css
         run: |
+          echo "=== Checking for custom.css ==="
           if [ -f custom.css ]; then
             echo "✓ custom.css exists in root"
-            cp custom.css book/custom.css
-            echo "✓ Copied custom.css to book/ directory"
+            # mdBook should copy additional-css automatically, verify it's there
+            if [ -f book/custom.css ]; then
+              echo "✓ custom.css already in book/ (copied by mdBook)"
+            else
+              echo "⚠ custom.css not in book/, copying manually..."
+              cp custom.css book/custom.css
+            fi
+            echo "=== Verifying CSS file ==="
             ls -la book/custom.css
+            echo "=== Checking if CSS is linked in HTML ==="
+            if [ -f book/index.html ]; then
+              grep -i "custom.css" book/index.html || echo "⚠ custom.css not found in index.html"
+            fi
+            if [ -f book/governance/overview.html ]; then
+              grep -i "custom.css" book/governance/overview.html || echo "⚠ custom.css not found in overview.html"
+            fi
           else
             echo "⚠ custom.css not found in root (non-fatal)"
           fi
