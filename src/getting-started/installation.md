@@ -59,21 +59,9 @@ Stable, minimal release with core functionality only:
 
 #### Experimental Variant (`bllvm-experimental-{version}-{platform}.tar.gz`)
 
-Full-featured build with all experimental features enabled:
+Full-featured build with experimental features enabled: UTXO commitments, BIP119 CTV, Dandelion++, BIP158, Stratum V2, and enhanced signature operations counting. See [Protocol Specifications](../reference/protocol-specifications.md#experimental-features) for details.
 
-**Consensus Layer Features:**
-- **UTXO Commitments** - Experimental UTXO commitment system for faster initial sync
-- **BIP119 CTV** - CheckTemplateVerify (proposed soft fork) support
-
-**Network Features:**
-- **Dandelion++** - Privacy-preserving transaction relay protocol
-- **BIP158** - Compact block filters for lightweight clients
-- **Stratum V2** - Modern mining protocol with improved efficiency and security
-
-**Protocol Features:**
-- **Signature Operations Counting** - Enhanced sigop tracking
-
-**Use this variant for**: Development, testing, advanced features, or if you need any of the experimental capabilities listed above
+**Use this variant for**: Development, testing, advanced features, or if you need any experimental capabilities.
 
 ## Installing bllvm-sdk Tools
 

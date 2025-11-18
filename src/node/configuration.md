@@ -4,10 +4,10 @@ BLLVM node supports flexible configuration for different use cases.
 
 ## Protocol Variants
 
-The node supports multiple Bitcoin protocol variants:
+The node supports multiple Bitcoin protocol variants. See [Network Variants](../protocol/network-protocol.md#network-variants) for details:
 
 - **Regtest** (default): Regression testing network for development
-- **Testnet3**: Bitcoin test network
+- **Testnet3**: Bitcoin test network  
 - **BitcoinV1**: Production Bitcoin mainnet
 
 ## Configuration File
@@ -118,8 +118,6 @@ keep_blocks = 288  # Keep last 288 blocks (2 days)
 ### Transport Options
 
 Configure transport selection (see [Transport Abstraction](../protocol/network-protocol.md#transport-abstraction-layer)):
-- **TCP**: Traditional Bitcoin P2P protocol (default)
-- **Iroh/QUIC**: Modern transport protocol (experimental, requires `iroh` feature)
 
 ```toml
 [network]

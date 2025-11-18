@@ -4,13 +4,7 @@ Complete guide for setting up and configuring your first BLLVM node.
 
 ## Configuration
 
-### Protocol Variants
-
-BLLVM supports multiple Bitcoin protocol variants:
-
-- **Regtest** (default): Regression testing network for development
-- **Testnet3**: Bitcoin test network
-- **BitcoinV1**: Production Bitcoin mainnet
+See [Node Configuration](../node/configuration.md) for complete configuration options.
 
 ### Basic Configuration
 
@@ -31,7 +25,7 @@ port = 8332
 ### Running with Configuration
 
 ```bash
-cargo run -- --config bllvm.toml
+bllvm --config bllvm.toml
 ```
 
 ## Storage
@@ -74,23 +68,5 @@ See [RPC API Reference](../node/rpc-api.md) for complete API documentation.
 
 ## Troubleshooting
 
-### Node Won't Start
-
-- Check Rust version: `rustc --version` (requires 1.70+)
-- Verify all dependencies are available
-- Check configuration file syntax
-
-### Can't Connect to Network
-
-- Verify network settings match your intended network
-- Check firewall settings
-- Ensure ports are accessible
-
-### Sync Issues
-
-- Check network connectivity
-- Verify you're on the correct network (testnet vs mainnet)
-- Review logs for specific errors
-
-See [Troubleshooting](../appendices/troubleshooting.md) for more help.
+See [Troubleshooting](../appendices/troubleshooting.md) for common issues and solutions.
 

@@ -56,11 +56,8 @@ curl -X POST http://localhost:8332 \
 ### Verifying Installation
 
 ```bash
-# Check version
-bllvm --version
-
-# Check help
-bllvm --help
+bllvm --version  # Verify installation
+bllvm --help     # View available options
 ```
 
 The node will:
