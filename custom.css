@@ -1,10 +1,12 @@
 /* Custom CSS for chart images with white backgrounds */
+/* TEST: This should make all images have white backgrounds */
 /* Universal selector for all images - most comprehensive */
 img {
     background-color: white !important;
     padding: 8px;
     border-radius: 4px;
     display: inline-block;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1) !important;
 }
 
 /* More specific: target images in the images directory - multiple selectors for coverage */
