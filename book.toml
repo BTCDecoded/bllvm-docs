@@ -3,7 +3,6 @@ title = "BLLVM Documentation"
 description = "Unified documentation for Bitcoin Commons BLLVM ecosystem"
 authors = ["BTCDecoded Contributors"]
 language = "en"
-multilingual = false
 src = "src"
 
 [build]
