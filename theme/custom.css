@@ -1,5 +1,13 @@
 /* Custom CSS for chart images with white backgrounds */
-/* Target all images in the images directory - multiple selectors for coverage */
+/* Universal selector for all images - most comprehensive */
+img {
+    background-color: white !important;
+    padding: 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* More specific: target images in the images directory - multiple selectors for coverage */
 img[src*='images/'],
 img[src*='../images/'],
 img[src*='/images/'],
@@ -22,8 +30,10 @@ img[src*='.png'] {
 /* More specific: target images within content areas */
 .chapter-content img,
 .content img,
-main img {
+main img,
+section img {
     background-color: white !important;
     padding: 8px;
     border-radius: 4px;
+    display: inline-block;
 }
