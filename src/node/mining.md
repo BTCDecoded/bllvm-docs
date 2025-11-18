@@ -5,22 +5,16 @@ The reference node includes mining coordination functionality as part of the Bit
 ## Mining Components
 
 ### Block Template Generation
-- Create blocks from mempool transactions
-- Select transactions based on fee priority
-- Generate coinbase transaction
-- Calculate merkle root
+
+Block templates are created from mempool transactions, selecting transactions based on fee priority, generating coinbase transactions, and calculating merkle roots.
 
 ### Mining Process
-- Block template creation
-- Nonce finding and proof-of-work
-- Block submission and validation
+
+The mining process involves block template creation, nonce finding and proof-of-work, and block submission and validation.
 
 ## Mining Integration
 
-The node provides:
-- **Block Template API**: Generate blocks for mining
-- **Mining Coordination**: Coordinate with mining hardware/software
-- **Stratum Support**: Optional Stratum V2 support (feature-gated)
+The node provides a **Block Template API** for generating blocks for mining, **mining coordination** with mining hardware/software, and optional **Stratum V2 support** (feature-gated).
 
 For implementation details, see the [bllvm-node README](../../modules/bllvm-node/README.md).
 

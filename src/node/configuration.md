@@ -4,11 +4,7 @@ BLLVM node supports flexible configuration for different use cases.
 
 ## Protocol Variants
 
-The node supports multiple Bitcoin protocol variants. See [Network Variants](../protocol/network-protocol.md#network-variants) for details:
-
-- **Regtest** (default): Regression testing network for development
-- **Testnet3**: Bitcoin test network  
-- **BitcoinV1**: Production Bitcoin mainnet
+The node supports multiple Bitcoin protocol variants: **Regtest** (default, regression testing network for development), **Testnet3** (Bitcoin test network), and **BitcoinV1** (production Bitcoin mainnet). See [Network Variants](../protocol/network-protocol.md#network-variants) for details.
 
 ## Configuration File
 

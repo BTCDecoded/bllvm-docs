@@ -2,13 +2,7 @@
 
 Welcome to the BLLVM (Bitcoin Low-Level Virtual Machine) documentation!
 
-BLLVM is a comprehensive Bitcoin implementation ecosystem that provides:
-
-- **Direct mathematical implementation** of Bitcoin consensus rules
-- **Protocol abstraction layer** for multiple Bitcoin variants
-- **Production-ready node implementation** with full P2P networking
-- **Developer SDK** for building custom Bitcoin implementations
-- **Cryptographic governance** system for transparent, accountable development
+BLLVM is a comprehensive Bitcoin implementation ecosystem providing direct mathematical implementation of Bitcoin consensus rules, protocol abstraction for multiple Bitcoin variants, production-ready node implementation with full P2P networking, developer SDK for building custom implementations, and cryptographic governance for transparent, accountable development.
 
 ## What is BLLVM?
 
@@ -42,9 +36,7 @@ This unified documentation site aggregates content from multiple source reposito
 
 ## Getting Help
 
-- **Issues**: Report bugs or request features on GitHub
-- **Discussions**: Ask questions in GitHub Discussions
-- **Security**: Report security issues to security@btcdecoded.org
+Report bugs or request features on GitHub Issues, ask questions in GitHub Discussions, or report security issues to security@btcdecoded.org.
 
 ## Status
 

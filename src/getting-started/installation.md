@@ -4,8 +4,7 @@ This guide covers installing BLLVM from pre-built binaries available on GitHub r
 
 ## Prerequisites
 
-- **Linux, macOS, or Windows**: Pre-built binaries available for common platforms
-- **No Rust required**: Binaries are pre-compiled and ready to use
+Pre-built binaries are available for Linux, macOS, and Windows on common platforms. No Rust installation required - binaries are pre-compiled and ready to use.
 
 ## Installing bllvm-node
 
@@ -49,13 +48,7 @@ Releases include two variants:
 
 #### Base Variant (`bllvm-{version}-{platform}.tar.gz`)
 
-Stable, minimal release with core functionality only:
-- Core Bitcoin node functionality
-- Production optimizations
-- Standard storage backends
-- Process sandboxing
-
-**Use this variant for**: Production deployments, stability priority
+Stable, minimal release with core Bitcoin node functionality, production optimizations, standard storage backends, and process sandboxing. **Use this variant for**: Production deployments, stability priority.
 
 #### Experimental Variant (`bllvm-experimental-{version}-{platform}.tar.gz`)
 

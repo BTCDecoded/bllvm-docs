@@ -20,10 +20,7 @@ Or explicitly:
 bllvm --network regtest
 ```
 
-This starts a node in regtest mode (default), which:
-- Creates an isolated network
-- Allows instant block generation
-- Perfect for testing and development
+This starts a node in regtest mode (default), creating an isolated network with instant block generation, perfect for testing and development.
 
 ### Testnet Mode
 
@@ -60,11 +57,7 @@ bllvm --version  # Verify installation
 bllvm --help     # View available options
 ```
 
-The node will:
-- Connect to the P2P network
-- Sync blockchain state
-- Accept RPC commands on port 8332 (default)
-- Mine blocks (if configured)
+The node connects to the P2P network, syncs blockchain state, accepts RPC commands on port 8332 (default), and can mine blocks if configured.
 
 ## Using the SDK
 

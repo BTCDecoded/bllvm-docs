@@ -12,12 +12,7 @@ The BTCDecoded reference-node includes a process-isolated module system that ena
 
 ### Communication
 
-Modules communicate with the node via **Inter-Process Communication (IPC)** using Unix domain sockets:
-
-- **Protocol**: Length-delimited binary messages (bincode serialization)
-- **Message Types**: Requests, Responses, Events
-- **Connection**: Persistent connection for request/response pattern
-- **Events**: Pub/sub pattern for real-time notifications
+Modules communicate with the node via **Inter-Process Communication (IPC)** using Unix domain sockets. Protocol uses length-delimited binary messages (bincode serialization) with message types: Requests, Responses, Events. Connection is persistent for request/response pattern; events use pub/sub pattern for real-time notifications.
 
 ## Module Structure
 
