@@ -4,13 +4,20 @@ Get up and running with BLLVM in minutes.
 
 ## Running Your First Node
 
+After [installing](installation.md) the binary, you can start a node:
+
 ### Regtest Mode (Recommended for Development)
 
 Regtest mode is safe for development - it creates an isolated network:
 
 ```bash
-cd bllvm-node
-cargo run
+bllvm
+```
+
+Or explicitly:
+
+```bash
+bllvm --network regtest
 ```
 
 This starts a node in regtest mode (default), which:
@@ -23,7 +30,7 @@ This starts a node in regtest mode (default), which:
 Connect to Bitcoin testnet:
 
 ```bash
-cargo run -- --network testnet
+bllvm --network testnet
 ```
 
 ### Mainnet Mode
@@ -31,32 +38,35 @@ cargo run -- --network testnet
 ⚠️ **Warning**: Only use mainnet if you understand the risks.
 
 ```bash
-cargo run -- --network mainnet
+bllvm --network mainnet
 ```
 
 ## Basic Node Operations
 
-### Creating a Node Programmatically
+### Checking Node Status
 
-```rust
-use bllvm_node::{Node, ProtocolVersion};
+Once the node is running, check its status via RPC:
 
-// Default: Regtest for safe development
-let node = Node::new(None)?;
-
-// Explicit testnet
-let testnet_node = Node::new(Some(ProtocolVersion::Testnet3))?;
-
-// Mainnet (use with caution)
-let mainnet_node = Node::new(Some(ProtocolVersion::BitcoinV1))?;
+```bash
+curl -X POST http://localhost:8332 \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc": "2.0", "method": "getblockchaininfo", "params": [], "id": 1}'
 ```
 
-### Running the Node
+### Verifying Installation
+
+```bash
+# Check version
+bllvm --version
+
+# Check help
+bllvm --help
+```
 
 The node will:
 - Connect to the P2P network
 - Sync blockchain state
-- Accept RPC commands
+- Accept RPC commands on port 8332 (default)
 - Mine blocks (if configured)
 
 ## Using the SDK

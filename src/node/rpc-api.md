@@ -60,25 +60,50 @@ curl -X POST http://localhost:8332 \
 
 ## Available Methods
 
-### Blockchain Methods
+**Total Methods Implemented: 28**
+
+### Blockchain Methods (8 methods)
 - `getblockchaininfo` - Get blockchain information
 - `getblock` - Get block by hash
 - `getblockhash` - Get block hash by height
+- `getblockheader` - Get block header by hash
+- `getbestblockhash` - Get best block hash
 - `getblockcount` - Get current block height
+- `getdifficulty` - Get current difficulty
+- `gettxoutsetinfo` - Get UTXO set statistics
+- `verifychain` - Verify blockchain database
 
-### Network Methods
+### Raw Transaction Methods (7 methods)
+- `getrawtransaction` - Get transaction by txid
+- `sendrawtransaction` - Submit transaction to mempool
+- `testmempoolaccept` - Test if transaction would be accepted
+- `decoderawtransaction` - Decode raw transaction hex
+- `gettxout` - Get UTXO information
+- `gettxoutproof` - Get merkle proof for transaction
+- `verifytxoutproof` - Verify merkle proof
+
+### Mempool Methods (3 methods)
+- `getmempoolinfo` - Get mempool statistics
+- `getrawmempool` - List transactions in mempool
+- `savemempool` - Persist mempool to disk
+
+### Network Methods (9 methods)
 - `getnetworkinfo` - Get network information
 - `getpeerinfo` - Get connected peers
-- `addnode` - Add a peer manually
+- `getconnectioncount` - Get number of connections
+- `ping` - Ping connected peers
+- `addnode` - Add/remove node from peer list
+- `disconnectnode` - Disconnect specific node
+- `getnettotals` - Get network statistics
+- `clearbanned` - Clear banned nodes
+- `setban` - Ban/unban a subnet
+- `listbanned` - List banned nodes
 
-### Transaction Methods
-- `sendrawtransaction` - Broadcast a transaction
-- `getrawtransaction` - Get transaction by hash
-- `decoderawtransaction` - Decode a raw transaction
-
-### Mining Methods
+### Mining Methods (4 methods)
+- `getmininginfo` - Get mining information
 - `getblocktemplate` - Get block template for mining
 - `submitblock` - Submit a mined block
+- `estimatesmartfee` - Estimate smart fee rate
 
 ## Implementation Status
 
