@@ -49,17 +49,10 @@ jobs:
           fi
           
           # Manually inject CSS link into all HTML files if not present
+          # Use absolute path from site root (works for custom domain)
           find book -name "*.html" -type f | while read file; do
             if ! grep -q "custom.css" "$file"; then
-              # Calculate relative path to CSS from this HTML file
-              depth=$(echo "$file" | sed 's|[^/]||g' | wc -c)
-              depth=$((depth - 2))  # Subtract 2 for "book/" prefix
-              if [ "$depth" -eq 0 ]; then
-                css_path="custom.css"
-              else
-                css_path=$(printf '../%.0s' $(seq 1 $depth))"custom.css"
-              fi
-              sed -i "s|</head>|<link rel=\"stylesheet\" href=\"$css_path\">\n</head>|" "$file"
+              sed -i 's|</head>|<link rel="stylesheet" href="/custom.css">\n</head>|' "$file"
             fi
           done
 
