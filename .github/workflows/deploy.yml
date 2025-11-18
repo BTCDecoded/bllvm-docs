@@ -36,17 +36,13 @@ jobs:
       - name: Build book
         run: mdbook build
         
-      - name: Add .nojekyll to prevent Jekyll processing
-        run: |
-          touch book/.nojekyll
-          echo "✓ Created .nojekyll file in book/ directory"
-        
       - name: Copy custom.css to output directory
         run: |
           if [ -f custom.css ]; then
             echo "✓ custom.css exists in root"
             cp custom.css book/custom.css
             echo "✓ Copied custom.css to book/ directory"
+            ls -la book/custom.css
           else
             echo "⚠ custom.css not found in root (non-fatal)"
           fi
