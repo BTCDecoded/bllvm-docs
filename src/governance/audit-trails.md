@@ -30,21 +30,13 @@ bllvm-commons verify-audit-log --log-path audit.log
 
 The governance system implements three complementary verification layers:
 
-![Three-Layer Verification Overview](../images/three-layer-verification-arch0.png)
-*Figure: Overview of the three-layer verification approach.*
-
-![Three-Layer Verification Details](../images/three-layer-verification-arch.png)
+![Three-Layer Verification](../images/three-layer-verification-arch.png)
 *Figure: Three-layer verification: GitHub merge control, real-time Nostr transparency, and OpenTimestamps historical proof.*
 
 ## Audit Trail Completeness
 
 ![Audit Trail Completeness](../images/audit-trail-completeness.png)
 *Figure: Audit-trail completeness across governance layers.*
-
-## Decision Provenance
-
-![Decision Provenance Completeness](../images/decision-provenance-completeness.png)
-*Figure: Decision provenance completeness showing traceability of governance decisions.*
 
 ## OpenTimestamps Integration
 

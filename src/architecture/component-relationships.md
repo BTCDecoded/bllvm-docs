@@ -70,11 +70,6 @@ bllvm-commons (depends on bllvm-sdk)
 5. **bllvm-sdk** provides governance primitives
 6. **bllvm-commons** uses bllvm-sdk for cryptographic operations
 
-## Architecture Comparison
-
-![Architecture Comparison](../images/architecture-comparison-trans.png)
-*Figure: Core vs Commons architectural comparison, modular design with cryptographic enforcement addresses Core's structural limitations.*
-
 ## Cross-Layer Validation
 
 - Dependencies between layers are strictly enforced

@@ -55,8 +55,3 @@ The consensus layer is designed as a pure mathematical implementation with no si
 ![Spec Maintenance Workflow](../images/spec-maintenance-workflow.png)
 *Figure: Specification maintenance workflow showing how changes are detected, verified, and integrated.*
 
-## Spec Coverage
-
-![Spec Coverage](../images/spec-coverage.png)
-*Figure: Specification coverage across core consensus areas.*
-

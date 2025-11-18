@@ -14,11 +14,6 @@ Bitcoin Commons implements a constitutional governance model that makes Bitcoin 
 ![Governance Process Latency](../images/governance-process-latency.png)
 *Figure: Governance process latency showing review periods and decision timelines across different tiers.*
 
-## Governance Latency Stack
-
-![Governance Latency Stack](../images/governance-latency-stack.png)
-*Figure: Latency breakdown across governance layers showing where time is spent in the decision-making process.*
-
 ## PR Review Time Distribution
 
 ![PR Review Time Distribution](../images/pr-review-time-distribution.png)
