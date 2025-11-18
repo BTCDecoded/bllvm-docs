@@ -1,0 +1,14 @@
+/* Custom CSS for chart images with white backgrounds */
+/* Target images in the images directory */
+img[src*='images/'] {
+    background-color: white !important;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Target PNG images specifically */
+img[src$='.png'] {
+    background-color: white !important;
+    padding: 8px;
+    border-radius: 4px;
+}
