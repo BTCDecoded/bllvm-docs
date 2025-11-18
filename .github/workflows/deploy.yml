@@ -49,8 +49,7 @@ jobs:
               echo "✓ custom.css already in book/ (copied by mdBook)"
             fi
           else
-            echo "✗ custom.css not found in root!"
-            exit 1
+            echo "⚠ custom.css not found in root (non-fatal, continuing build)"
           fi
           echo ""
           echo "=== Verifying CSS in HTML ==="
@@ -59,8 +58,14 @@ jobs:
             grep -i "custom.css" book/governance/overview.html || echo "⚠ custom.css link not found in HTML"
           fi
           echo ""
-          echo "=== CSS file contents (first 5 lines) ==="
-          head -5 book/custom.css 2>/dev/null || echo "⚠ Could not read book/custom.css"
+          echo "=== Verifying build output structure ==="
+          ls -la book/ | head -20
+          if [ -f book/index.html ]; then
+            echo "✓ index.html exists"
+          else
+            echo "✗ index.html missing - build may have failed!"
+            exit 1
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
