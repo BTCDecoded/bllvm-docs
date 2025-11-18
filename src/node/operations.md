@@ -8,19 +8,19 @@ Operational guide for running and maintaining a BLLVM node.
 
 ```bash
 # Regtest mode (default, safe for development)
-cargo run
+bllvm
 
 # Testnet mode
-cargo run -- --network testnet
+bllvm --network testnet
 
 # Mainnet mode (use with caution)
-cargo run -- --network mainnet
+bllvm --network mainnet
 ```
 
 ### With Configuration
 
 ```bash
-cargo run -- --config bllvm.toml
+bllvm --config bllvm.toml
 ```
 
 ## Node Lifecycle
@@ -55,17 +55,17 @@ curl -X POST http://localhost:8332 \
 
 ### Logging
 
-The node uses structured logging:
+The node uses structured logging. Set log level via environment variable:
 
 ```bash
 # Set log level
-RUST_LOG=info cargo run
+RUST_LOG=info bllvm
 
 # Debug mode
-RUST_LOG=debug cargo run
+RUST_LOG=debug bllvm
 
 # Trace all operations
-RUST_LOG=trace cargo run
+RUST_LOG=trace bllvm
 ```
 
 ## Maintenance
@@ -89,8 +89,8 @@ When updating the node:
 
 1. Stop the node gracefully
 2. Backup data directory
-3. Update code
-4. Rebuild: `cargo build --release`
+3. Download new binary from [GitHub Releases](https://github.com/BTCDecoded/bllvm-node/releases)
+4. Replace old binary with new one
 5. Restart node
 
 ## Troubleshooting
