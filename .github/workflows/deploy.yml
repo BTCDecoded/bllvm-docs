@@ -36,13 +36,15 @@ jobs:
       - name: Build book
         run: mdbook build
         
-      - name: Verify custom.css is included
+      - name: Copy custom.css to output directory
         run: |
           if [ -f custom.css ]; then
             echo "✓ custom.css exists in root"
-            cp custom.css book/ || echo "Note: mdBook should copy this automatically"
+            cp custom.css book/custom.css
+            echo "✓ Copied custom.css to book/ directory"
+            ls -la book/custom.css
           else
-            echo "✗ custom.css not found!"
+            echo "✗ custom.css not found in root!"
             exit 1
           fi
 
