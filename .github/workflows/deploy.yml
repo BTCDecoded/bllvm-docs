@@ -49,25 +49,25 @@ jobs:
           # Inject CSS link if mdBook didn't include it (additional-css may not work)
           if [ -f book/index.html ] && ! grep -q "custom.css" book/index.html; then
             echo "Injecting custom.css link into HTML files..."
-            python3 << 'PYTHON_SCRIPT'
-import os
-for root, dirs, files in os.walk('book'):
-    for file in files:
-        if file.endswith('.html'):
-            path = os.path.join(root, file)
-            with open(path, 'r', encoding='utf-8') as f:
-                content = f.read()
-            if 'custom.css' not in content:
-                # Calculate relative path: depth from book/ root
-                rel_path = os.path.relpath('book', root)
-                if rel_path == '.':
-                    css_path = 'custom.css'
-                else:
-                    css_path = os.path.join(rel_path, 'custom.css').replace('\\', '/')
-                content = content.replace('</head>', f'<link rel="stylesheet" href="{css_path}">\n</head>')
-                with open(path, 'w', encoding='utf-8') as f:
-                    f.write(content)
-PYTHON_SCRIPT
+            python3 << 'EOF'
+          import os
+          for root, dirs, files in os.walk('book'):
+              for file in files:
+                  if file.endswith('.html'):
+                      path = os.path.join(root, file)
+                      with open(path, 'r', encoding='utf-8') as f:
+                          content = f.read()
+                      if 'custom.css' not in content:
+                          # Calculate relative path: depth from book/ root
+                          rel_path = os.path.relpath('book', root)
+                          if rel_path == '.':
+                              css_path = 'custom.css'
+                          else:
+                              css_path = os.path.join(rel_path, 'custom.css').replace('\\', '/')
+                          content = content.replace('</head>', f'<link rel="stylesheet" href="{css_path}">\n</head>')
+                          with open(path, 'w', encoding='utf-8') as f:
+                              f.write(content)
+          EOF
           fi
 
       - name: Setup Pages
