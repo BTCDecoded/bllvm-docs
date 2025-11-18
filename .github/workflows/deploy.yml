@@ -39,13 +39,21 @@ jobs:
       - name: Add .nojekyll to deployment root
         run: touch book/.nojekyll
         
-      - name: Copy custom.css to output directory
+      - name: Copy and inject custom.css
         run: |
+          # Copy CSS file
           if [ -f custom.css ]; then
             cp custom.css book/custom.css
           elif [ -f src/custom.css ]; then
             cp src/custom.css book/custom.css
           fi
+          
+          # Manually inject CSS link into all HTML files if not present
+          find book -name "*.html" -type f | while read file; do
+            if ! grep -q "custom.css" "$file"; then
+              sed -i 's|</head>|<link rel="stylesheet" href="custom.css">\n</head>|' "$file"
+            fi
+          done
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
