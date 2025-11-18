@@ -1,12 +1,11 @@
 # Installation
 
-This guide covers installing and building BLLVM components.
+This guide covers installing BLLVM from pre-built binaries available on GitHub releases.
 
 ## Prerequisites
 
-- **Rust 1.70+**: Required for all BLLVM components
-- **Git**: For cloning repositories
-- **Cargo**: Comes with Rust installation
+- **Linux, macOS, or Windows**: Pre-built binaries available for common platforms
+- **No Rust required**: Binaries are pre-compiled and ready to use
 
 ## Installing bllvm-node
 
@@ -14,87 +13,97 @@ The reference node is the main entry point for running a BLLVM node.
 
 ### Quick Start
 
-```bash
-git clone https://github.com/BTCDecoded/bllvm-node
-cd bllvm-node
-cargo build --release
-```
+1. **Download the latest release** from [GitHub Releases](https://github.com/BTCDecoded/bllvm-node/releases)
 
-The build automatically fetches dependencies (bllvm-consensus, bllvm-protocol) from GitHub.
-
-### Local Development Setup
-
-If you're developing multiple BLLVM components together:
-
-1. Clone all repositories:
+2. **Extract the archive** for your platform:
    ```bash
-   git clone https://github.com/BTCDecoded/bllvm-consensus
-   git clone https://github.com/BTCDecoded/bllvm-protocol
-   git clone https://github.com/BTCDecoded/bllvm-node
-   ```
-
-2. Set up local path dependencies in `bllvm-node/.cargo/config.toml`:
-   ```toml
-   [patch."https://github.com/BTCDecoded/bllvm-consensus"]
-   bllvm-consensus = { path = "../bllvm-consensus" }
+   # Linux
+   tar -xzf bllvm-*-linux-x86_64.tar.gz
    
-   [patch."https://github.com/BTCDecoded/bllvm-protocol"]
-   bllvm-protocol = { path = "../bllvm-protocol" }
+   # macOS
+   tar -xzf bllvm-*-macos-x86_64.tar.gz
+   
+   # Windows
+   # Extract the .zip file using your preferred tool
    ```
 
-3. Build:
+3. **Move the binary to your PATH** (optional but recommended):
    ```bash
-   cd bllvm-node
-   cargo build
+   # Linux/macOS
+   sudo mv bllvm /usr/local/bin/
+   
+   # Or add to your local bin directory
+   mkdir -p ~/.local/bin
+   mv bllvm ~/.local/bin/
+   export PATH="$HOME/.local/bin:$PATH"  # Add to ~/.bashrc or ~/.zshrc
    ```
 
-Changes to dependencies are now immediately reflected without git push.
+4. **Verify installation**:
+   ```bash
+   bllvm --version
+   ```
 
-## Installing bllvm-sdk
+### Release Variants
 
-The developer SDK provides governance cryptographic primitives and CLI tools.
+Releases include two variants:
 
-```bash
-git clone https://github.com/BTCDecoded/bllvm-sdk
-cd bllvm-sdk
-cargo build --release
-```
+- **Base Variant** (`bllvm-{version}-{platform}.tar.gz`): Stable, minimal release with core functionality
+- **Experimental Variant** (`bllvm-experimental-{version}-{platform}.tar.gz`): Full-featured build with experimental features (UTXO commitments, Dandelion++, CTV, Stratum V2, etc.)
 
-This builds the CLI tools:
+**For production use**, download the base variant. **For development or advanced features**, use the experimental variant.
+
+## Installing bllvm-sdk Tools
+
+The SDK tools (`bllvm-keygen`, `bllvm-sign`, `bllvm-verify`) are included in the bllvm-node release archives.
+
+After extracting the release archive, you'll find:
+- `bllvm` - Bitcoin reference node
 - `bllvm-keygen` - Generate governance keypairs
 - `bllvm-sign` - Sign governance messages
 - `bllvm-verify` - Verify signatures and multisig thresholds
 
-## Installing bllvm-consensus
+All tools are in the same directory. Move them to your PATH as described above.
 
-The consensus layer is typically used as a library dependency, but can be built standalone:
+## Platform-Specific Notes
+
+### Linux
+
+- **x86_64**: Standard 64-bit Linux
+- **ARM64**: For ARM-based systems (Raspberry Pi, AWS Graviton, etc.)
+- **glibc 2.31+**: Required for Linux binaries
+
+### macOS
+
+- **x86_64**: Intel Macs
+- **ARM64**: Apple Silicon (M1/M2/M3)
+- **macOS 11.0+**: Required for macOS binaries
+
+### Windows
+
+- **x86_64**: 64-bit Windows
+- Extract the `.zip` file and run `bllvm.exe` from the extracted directory
+- Add the directory to your PATH for command-line access
+
+## Verifying Installation
+
+After installation, verify everything works:
 
 ```bash
-git clone https://github.com/BTCDecoded/bllvm-consensus
-cd bllvm-consensus
-cargo build --release
+# Check bllvm-node version
+bllvm --version
+
+# Check SDK tools
+bllvm-keygen --help
+bllvm-sign --help
+bllvm-verify --help
 ```
 
-## Testing Installation
+## Building from Source (Advanced)
 
-After building, verify the installation:
-
-```bash
-# Test bllvm-node
-cd bllvm-node
-cargo test
-
-# Test bllvm-sdk
-cd bllvm-sdk
-cargo test
-
-# Test bllvm-consensus
-cd bllvm-consensus
-cargo test --all-features
-```
+If you need to build from source (for development, custom features, or unsupported platforms), see the [Development Guide](../development/compilation.md).
 
 ## Next Steps
 
 - See [Quick Start](quick-start.md) for running your first node
-- See [First Node Setup](first-node.md) for detailed configuration
+- See [Configuration](configuration.md) for detailed setup options
 
