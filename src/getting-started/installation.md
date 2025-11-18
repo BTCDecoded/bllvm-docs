@@ -47,10 +47,33 @@ The reference node is the main entry point for running a BLLVM node.
 
 Releases include two variants:
 
-- **Base Variant** (`bllvm-{version}-{platform}.tar.gz`): Stable, minimal release with core functionality
-- **Experimental Variant** (`bllvm-experimental-{version}-{platform}.tar.gz`): Full-featured build with experimental features (UTXO commitments, Dandelion++, CTV, Stratum V2, etc.)
+#### Base Variant (`bllvm-{version}-{platform}.tar.gz`)
 
-**For production use**, download the base variant. **For development or advanced features**, use the experimental variant.
+Stable, minimal release with core functionality only:
+- Core Bitcoin node functionality
+- Production optimizations
+- Standard storage backends
+- Process sandboxing
+
+**Use this variant for**: Production deployments, stability priority
+
+#### Experimental Variant (`bllvm-experimental-{version}-{platform}.tar.gz`)
+
+Full-featured build with all experimental features enabled:
+
+**Consensus Layer Features:**
+- **UTXO Commitments** - Experimental UTXO commitment system for faster initial sync
+- **BIP119 CTV** - CheckTemplateVerify (proposed soft fork) support
+
+**Network Features:**
+- **Dandelion++** - Privacy-preserving transaction relay protocol
+- **BIP158** - Compact block filters for lightweight clients
+- **Stratum V2** - Modern mining protocol with improved efficiency and security
+
+**Protocol Features:**
+- **Signature Operations Counting** - Enhanced sigop tracking
+
+**Use this variant for**: Development, testing, advanced features, or if you need any of the experimental capabilities listed above
 
 ## Installing bllvm-sdk Tools
 
