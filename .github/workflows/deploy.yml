@@ -39,22 +39,39 @@ jobs:
       - name: Add .nojekyll to deployment root
         run: touch book/.nojekyll
         
-      - name: Copy and inject custom.css
+      - name: Ensure custom.css is deployed
         run: |
-          # Copy CSS file
+          # Copy CSS to output (mdBook should do this via additional-css, but ensure it's there)
           if [ -f custom.css ]; then
             cp custom.css book/custom.css
-          elif [ -f src/custom.css ]; then
-            cp src/custom.css book/custom.css
           fi
           
-          # Manually inject CSS link into all HTML files if not present
-          # Use absolute path from site root (works for custom domain)
-          find book -name "*.html" -type f | while read file; do
-            if ! grep -q "custom.css" "$file"; then
-              sed -i 's|</head>|<link rel="stylesheet" href="/custom.css">\n</head>|' "$file"
-            fi
-          done
+          # Verify CSS is linked in HTML - if not, mdBook's additional-css didn't work
+          # Check one HTML file to see if CSS link exists
+          if [ -f book/index.html ] && ! grep -q "custom.css" book/index.html; then
+            echo "⚠ mdBook did not include custom.css link, injecting manually..."
+            # Use Python for reliable HTML manipulation
+            python3 << 'EOF'
+import os
+import re
+for root, dirs, files in os.walk('book'):
+    for file in files:
+        if file.endswith('.html'):
+            path = os.path.join(root, file)
+            with open(path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            if 'custom.css' not in content:
+                # Calculate relative path to CSS from this HTML file
+                depth = path.count(os.sep) - 1  # Subtract 1 for 'book'
+                css_path = '../' * depth + 'custom.css' if depth > 0 else 'custom.css'
+                # Insert before </head>
+                content = content.replace('</head>', f'<link rel="stylesheet" href="{css_path}">\n</head>')
+                with open(path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+EOF
+          else
+            echo "✓ CSS link found in HTML (mdBook included it)"
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
