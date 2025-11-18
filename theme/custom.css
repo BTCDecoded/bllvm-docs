@@ -1,13 +1,28 @@
 /* Custom CSS for chart images with white backgrounds */
-/* Target images in the images directory */
-img[src*='images/'] {
+/* Target all images in the images directory - multiple selectors for coverage */
+img[src*='images/'],
+img[src*='../images/'],
+img[src*='/images/'],
+img[src*='./images/'] {
     background-color: white !important;
     padding: 8px;
     border-radius: 4px;
+    display: inline-block;
 }
 
-/* Target PNG images specifically */
-img[src$='.png'] {
+/* Target PNG images specifically - catch all PNG files */
+img[src$='.png'],
+img[src*='.png'] {
+    background-color: white !important;
+    padding: 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* More specific: target images within content areas */
+.chapter-content img,
+.content img,
+main img {
     background-color: white !important;
     padding: 8px;
     border-radius: 4px;
