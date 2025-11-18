@@ -30,19 +30,11 @@ bllvm --config bllvm.toml
 
 ## Storage
 
-The node stores blockchain data in the configured data directory:
-
-- **Blocks**: Blockchain data
-- **UTXO Set**: Unspent transaction outputs
-- **Chain State**: Chain metadata and indexes
+The node stores blockchain data (blocks, UTXO set, chain state, and indexes) in the configured data directory. See [Storage Backends](../node/configuration.md#storage-backends) for configuration options.
 
 ## Network Connection
 
-The node automatically:
-- Discovers peers on the network
-- Connects to other nodes
-- Syncs blockchain state
-- Relays transactions and blocks
+The node automatically discovers peers, connects to the network, syncs blockchain state, and relays transactions and blocks.
 
 ## RPC Interface
 
@@ -59,12 +51,7 @@ See [RPC API Reference](../node/rpc-api.md) for complete API documentation.
 
 ## Security Considerations
 
-⚠️ **Important**: This implementation is designed for pre-production testing and development. Additional hardening is required for production mainnet use.
-
-- Use regtest or testnet for development
-- Never expose RPC to untrusted networks
-- Use proper authentication for RPC access
-- Keep software updated
+⚠️ **Important**: This implementation is designed for pre-production testing and development. Additional hardening is required for production mainnet use. Use regtest or testnet for development, never expose RPC to untrusted networks, configure RPC authentication, and keep software updated.
 
 ## Troubleshooting
 

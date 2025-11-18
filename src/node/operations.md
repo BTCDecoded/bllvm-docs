@@ -37,13 +37,7 @@ When starting for the first time, the node will:
 
 ### Running State
 
-Once synced, the node:
-
-- Maintains connections to peers
-- Relays transactions and blocks
-- Validates new blocks
-- Updates chain state
-- Serves RPC requests
+Once synced, the node maintains peer connections, validates and relays blocks/transactions, updates chain state, and serves RPC requests.
 
 ## Monitoring
 
@@ -78,12 +72,7 @@ RUST_LOG=trace cargo run
 
 ### Database Maintenance
 
-The node automatically maintains:
-
-- Block storage
-- UTXO set
-- Chain indexes
-- Transaction indexes
+The node automatically maintains block storage, UTXO set, chain indexes, and transaction indexes.
 
 ### Backup
 
@@ -106,22 +95,5 @@ When updating the node:
 
 ## Troubleshooting
 
-### Node Won't Sync
-
-- Check network connectivity
-- Verify you're on correct network
-- Check firewall settings
-- Review logs for errors
-
-### High Memory Usage
-
-- Consider pruning old blocks
-- Adjust cache sizes in config
-- Monitor UTXO set size
-
-### Connection Issues
-
-- Verify ports are accessible
-- Check peer discovery
-- Review network configuration
+See [Troubleshooting](../appendices/troubleshooting.md) for detailed solutions to common issues.
 

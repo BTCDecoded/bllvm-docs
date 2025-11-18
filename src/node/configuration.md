@@ -124,18 +124,4 @@ Configure transport selection (see [Transport Abstraction](../protocol/network-p
 transport_preference = "tcp_only"  # or "iroh_only", "hybrid"
 ```
 
-### Peer Discovery
-
-- Automatic peer discovery on the network
-- Manual peer configuration via config file or `--addnode` CLI option
-- DNS seed support for mainnet/testnet
-
-## Security Settings
-
-⚠️ **Important**: Configure security settings for production use:
-
-- RPC authentication
-- Network access controls
-- Firewall rules
-- Rate limiting
 
