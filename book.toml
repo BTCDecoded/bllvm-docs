@@ -12,10 +12,11 @@ create-missing = true
 [output.html]
 default-theme = "navy"
 preferred-dark-theme = "navy"
+site-url = "/"
 git-repository-url = "https://github.com/BTCDecoded/bllvm-docs"
 git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/BTCDecoded/bllvm-docs/edit/main/{path}"
-additional-css = ["theme/custom.css", "custom.css"]
+additional-css = ["custom.css"]
 
 [output.html.search]
 enable = true
