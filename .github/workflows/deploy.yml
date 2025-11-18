@@ -36,6 +36,9 @@ jobs:
       - name: Build book
         run: mdbook build
         
+      - name: Add .nojekyll to deployment root
+        run: touch book/.nojekyll
+        
       - name: Copy custom.css to output directory
         run: |
           if [ -f custom.css ]; then
