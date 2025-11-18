@@ -1,6 +1,24 @@
 # Message Formats
 
-This section will contain documentation about protocol message formats.
+The protocol layer defines message formats for Bitcoin P2P protocol communication.
 
-Documentation will be aggregated from `modules/bllvm-protocol/docs/`.
+## Protocol Variants
+
+Each protocol variant (mainnet, testnet, regtest) has specific message formats and network parameters:
+
+- **Magic Bytes**: Unique identifier for each network variant
+- **Message Headers**: Standard Bitcoin message header format
+- **Message Types**: `version`, `verack`, `inv`, `getdata`, `tx`, `block`, etc.
+
+## Network Parameters
+
+Protocol-specific parameters include:
+
+- Default ports (mainnet: 8333, testnet: 18333, regtest: 18444)
+- Genesis block hashes
+- Difficulty adjustment intervals
+- Block size limits
+- Feature activation heights
+
+For detailed protocol specifications, see the [bllvm-protocol README](../../modules/bllvm-protocol/README.md).
 

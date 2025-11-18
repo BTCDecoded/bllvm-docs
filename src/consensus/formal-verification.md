@@ -1,6 +1,6 @@
 # Formal Verification
 
-This section will contain documentation about formal verification using Kani.
+The consensus layer implements formal verification for Bitcoin consensus rules using a multi-layered approach.
 
-Documentation will be aggregated from `modules/bllvm-consensus/docs/`.
+{{#include ../../../modules/bllvm-consensus/docs/VERIFICATION.md}}
 
