@@ -12,7 +12,6 @@ create-missing = true
 [output.html]
 default-theme = "navy"
 preferred-dark-theme = "navy"
-site-url = "/"
 git-repository-url = "https://github.com/BTCDecoded/bllvm-docs"
 git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/BTCDecoded/bllvm-docs/edit/main/{path}"
@@ -32,7 +31,6 @@ heading-split-level = 3
 [output.html.playground]
 editable = false
 copyable = true
-copyable-method = "copy"
 
 [output.html.redirect]
 "index.html" = "introduction.html"
